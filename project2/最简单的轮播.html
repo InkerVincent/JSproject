@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>test</title>
+<script>
+window.onload=function(){
+	var  Oleft=document.getElementById("left");
+	var  Oright=document.getElementById("right");
+	var  Oimg=document.getElementById("img1");
+	var  Oorder=document.getElementById("order");
+	var  Onote=document.getElementById("description");
+	var  imgarray=["images/1.jpg","images/2.jpeg","images/3.png","images/4.jpg"];
+	var  notearray=["哈","哄","嘻","呵"];
+	var  num=0;
+	function change(){
+		Oimg.src=imgarray[num];
+		Oorder.innerHTML=num+1+"/"+4;
+		Onote.innerHTML=notearray[num];
+	}
+	Oleft.onclick=function(){
+		if(num>=0)
+		{
+			change();
+			num--;
+		}
+		else{
+			num=3;
+			change();
+		}
+	}
+	Oright.onclick=function(){
+		if(num<3)
+		{
+			num++;
+			change();
+		}
+		else{
+			num=0;
+			change();
+		}
+	}
+}
+
+</script>
+<style>
+	.all{
+		width:500px;
+		overflow:auto;
+		border:1px solid black;
+		position:absolute;
+		top:50%;
+		left:50%;
+		margin-left:-250px;
+		margin-top:-220px;
+	}
+	#order,#description{
+	width:100%;
+	background:grey;
+	opacity:0.4;
+	color:white;
+	font-size:20px;
+	text-align:center;
+	}
+	#order{
+	float:top;
+	}
+	#description{
+	margin-top:-4px;
+	float:bottom;
+	}
+	#left,#right{
+	display:inline-block;
+	width:50px;
+	height:400px;
+	font-size:40px;
+	font-weight:bold;
+	background:grey;
+	color:white;
+	opacity:0.9;
+	text-align:center;
+	line-height:400px;
+	}
+	#right{
+	float:right;}
+	#left{
+	float:left;}
+	a:hover{
+		opacity:0.7;
+	}
+	img{
+	width:80%}
+</style>
+</head>
+<body>
+<div class="all">
+<div id="order">1/4</div>
+<a href="javascript:," id="prev"><span id="left"><</span></a>
+<img id="img1" src="images/1.jpg" />
+<a href="javascript:," id="next"><span id="right">></span></a>
+<div id="description">哈</div>
+</div>
+</body>
+</html>

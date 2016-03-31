@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<script>
+			window.onload=function(){
+				var  oFigure=document.getElementsByTagName("figure");
+				var  oDiv=document.getElementsByTagName("article");
+				for(var  i=0; i<3; i++){
+					oFigure[i].onmouseover=function(e){
+					return function(){
+						oDiv[e].style.visibility="visible";
+					}
+					}(i);
+					oDiv[i].onmouseover=function(e){
+					return function(){
+						oDiv[e].style.visibility="visible";
+					}
+					}(i);
+					oDiv[i].onmouseout=function(e){
+					return function(){
+						oDiv[e].style.visibility="hidden";
+					}
+					}(i);
+					oFigure[i].onmouseout=function(e){
+					return function(){
+						oDiv[e].style.visibility="hidden";
+					}
+		            }(i);
+				}
+				}
+				
+		</script>
+		<style>
+		body{background:grey;}
+		ul{display:inline-block;}
+			li{list-style-type:none;float:left;}
+			figure{width:120px;}
+			figure img{width:100%;}
+			figcaption{text-align:center}
+			article{width:200px;padding:10px;margin:20px -20px 20px -20px;position:relative;top:-100px;left:100px;background:white;-webkit-box-shadow:3px 3px 1px black;visibility:hidden;}
+			.title{width:100%;background:blue;opacity:0.4;}
+		</style>
+		<title>test</title>
+	</head>
+	<body>
+		<ul>
+			<li>
+				<figure>
+					<img src="images/1.jpg" />
+					<figcaption>可爱少女</figcaption>
+				</figure>
+				<article id="note">
+					<div class="title">
+						可爱少女
+					</div>
+					可爱少女可爱少女可爱少女可爱少女可爱少女可爱少女可爱少女可爱少女可爱少女可爱少女可爱少女可爱少女可爱少女可爱少女可爱少女
+				</article>
+			</li>
+			<li>
+				<figure>
+					<img src="images/2.jpeg" />
+					<figcaption>光头男孩</figcaption>
+				</figure>
+				<article id="note">
+					<div class="title">
+						光头男孩
+					</div>
+						光头男孩光头男孩光头男孩光头男孩光头男孩光头男孩光头男孩光头男孩光头男孩光头男孩光头男孩光头男孩
+					</article>
+			</li>
+			<li>
+				<figure>
+					<img src="images/3.png" />
+					<figcaption>女神</figcaption>
+				</figure>
+				<article id="note">
+					<div class=title>
+						女神
+					</div>
+					女神女神女神女神女神女神女神女神女神女神女神女神女神女神女神女神女神女神女神女神女神女神女神女神女神女神女神女神女神女神女神女神女神女神女神女神女神女神女神女神女神
+				</article>
+			</li>
+		</ul>
+	</body>
+</html>

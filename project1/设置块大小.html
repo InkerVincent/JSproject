@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+	<script>
+		window.onload=function(){
+			var  Odiv1=document.getElementById("div1");
+			var  Odiv2=document.getElementById("div2");
+			var  Obtn=document.getElementById("button1");
+			var  Oybtn=document.getElementById("ybutton");
+			var  Obbtn=document.getElementById("bbutton");
+			var  Orbtn=document.getElementById("rbutton");
+			var  body=document.getElementById("body1");
+			var  Oview=document.getElementById("view");
+			var  Oconfirm=document.getElementById("confirm");
+			var  Oreback=document.getElementById("reback");
+			var  Owidth=document.getElementById("widthinput");
+			var  Oheight=document.getElementById("heightinput");
+			Obtn.onclick=function(){
+				Odiv2.style.display="block";
+				body.style.background="grey";
+				body.style.opacity="0.4";
+				body.style.height="650px";
+			Oybtn.onclick=function(){Odiv1.style.background="yellow";}
+			Obbtn.onclick=function(){Odiv1.style.background="blue";}
+			Orbtn.onclick=function(){Odiv1.style.background="red";}
+			Oview.onclick=function(){
+			if(Owidth.value != "")
+			{
+				Odiv1.style["width"]=Owidth.value+"px";
+			}
+			if(Oheight.value != "")
+			{
+				Odiv1.style["height"]=Oheight.value+"px";
+			}
+			}
+			}
+			Oconfirm.onclick=function(){
+			Odiv2.style.display="none";
+			body.style.background="white";
+			body.style.opacity="1";
+			Owidth.value="";
+			Oheight.value="";
+			}
+			Oreback.onclick=function(){
+			Odiv1.style.background="red";
+			Odiv1.style.width="100px";
+			Odiv1.style.height="100px";
+			}
+		}
+	</script>
+	<style>
+		#div1{
+			width:100px;
+			height:100px;
+			border:1px solid #999;
+			border-radius:10px;
+			background:red;
+			filter:alpha(opacity=0);<!--IE滤镜-->
+			opacity:0.5;<!--其他通用-->
+			-moz-opacity:0.5 <!-- firefox专用-->
+		}
+		#div2{
+		box-sizing-width:300px;
+		box-sizing-height:200px;
+		border:10px solid #999;
+		background:white;
+		padding:20px;
+		position:absolute;
+		top:50%;
+		left:50%;
+		margin-top:-100px;
+		margin-left:-150px;
+		display:none;
+		}
+		#ybutton,#bbutton,#rbutton{
+		width:44px;
+		}
+		#bbutton{
+		background:blue;
+		}
+		#ybutton{
+		background:yellow;
+		}
+		#rbutton{
+		background:red;
+		}
+		#button1{
+		height:25px;
+		border-radius:5px;
+		}
+		#confirm,#reback,#view{
+		margin:0 5px 0 5px;
+		}
+		.confirmbutton{
+		text-align:center;
+		}
+	</style>
+	</head>
+	<body>
+	<div id="body1">
+	点击按钮进行设置：<input  id="button1" type="button" value="点击设置" /><br /><br />
+	<div id="div1">
+	</div>
+	</div>
+	<div id="div2" >请选择颜色：
+	<input id="rbutton" type="button"  />
+	<input id="ybutton" type="button"  />
+	<input id="bbutton" type="button"  />
+	<p>请输入宽：<input id="widthinput" type="text" /></p>
+	<p>请输入高：<input id="heightinput" type="text" /></p>
+	<div class="confirmbutton">
+	<input id="view" type="button" value="查看设置"/>
+	<input id="confirm" type="button" value="确认设置">
+	<input id="reback" type="button"  value="恢复默认">
+	</div>
+	</div>
+	</body>
+</html>

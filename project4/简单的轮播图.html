@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>一个简单的轮播图</title>
+	<style>
+		body,ul{margin:0;padding:0;background:#ccc;}
+		li{list-style:none;}
+		ul{display:flex;justify-content:center;}
+		#pic{width:500px;height:450px;border-radius:5px;background:white;-webkit-box-shadow:2px 2px 1px black;padding:20px;position:absolute;top:50%;left:50%;margin-top:-270px;margin-left:-270px}
+		ul{background:white;}
+		#pic img{width:100%;height:400px;}
+		#pic .hover{background:grey;}
+		#pic .active{background:grey;}
+		#pic li{width:20px;height:20px;border:1px solid grey;border-radius:50%;float:left;margin-top:20px;margin-left:20px;}
+		#pic li div{width:100px;height:80px;border-radius:5px;-webkit-box-shadow:2px 2px 1px black;padding:10px;border:1px solid black;position:relative;top:-120px;right:50px;visibility:hidden;}
+		#pic li .hover{background:white;visibility:visible;}
+		#pic li div img{width:100%;height:80px;}
+		#left,#right{text-decoration:none;display:inline-block;width:40px;height:40px;border:5px solid grey; opacity:0.3;text-align:center;padding-bottom:5px;font-size:40px;font-weight:bolder;color:grey;}
+		#left{position:absolute;left:10px;top:40%;}
+		#right{position:absolute;right:10px;top:40%;}
+		#left .hover,# right .hover{opacity:0.8;}
+	</style>
+	<script>
+		window.onload=function(){
+			var  arrImg=["img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg"];
+			var oDiv=document.getElementById("pic");
+			var aImg=oDiv.getElementsByTagName("img")[0];
+			var aUl = oDiv.getElementsByTagName('ul')[0];
+			var aLi=aUl.getElementsByTagName("li");
+			var aLiImg=aUl.getElementsByTagName("img");
+			var aDiv=aUl.getElementsByTagName("div");
+			var oLeft=document.getElementById("left");
+			var oRight=document.getElementById("right");
+			aImg.src=arrImg[0];
+			var num=0;
+			for(var i=0;i<arrImg.length;i++)
+			{
+				aUl.innerHTML += '<li><div><img src="" /></div></li>';
+			}
+			var num=0;
+			for(var i=0;i<arrImg.length;i++)
+			{
+				aLi[i].index=i;
+				aLiImg[i].src=arrImg[i];
+				aLi[i].onclick=function(){
+					aImg.src=arrImg[this.index];
+					num=this.index;
+					for(var i=0;i<arrImg.length;i++)
+					{
+						aLi[i].className="";
+						aDiv[i].className="";
+					}
+					this.className="active";
+				}
+				aLi[i].onmouseover=function(){
+					aDiv[this.index].className="hover";
+					if(this.className=="")
+					{this.className ="hover"};
+				}
+				aLi[i].onmouseout=function(){
+					aDiv[this.index].className="";
+					if(this.className=="hover")
+					this.className ="";
+				}
+			}
+			oLeft.onclick=function(){
+			if(num>0)
+			{
+				num--;
+				aImg.src=arrImg[num];
+				for(var i=0;i<arrImg.length;i++)
+					{
+						aLi[i].className="";
+					}
+					aLi[num].className="active";
+				}
+				else
+				{
+					num=3;
+					aImg.src=arrImg[num];
+					for(var i=0;i<arrImg.length;i++)
+					{
+						aLi[i].className="";
+					}
+					aLi[num].className="active";
+				}
+			}
+			oRight.onclick=function(){
+			if(num<3)
+			{
+				num++;
+				aImg.src=arrImg[num];
+				for(var i=0;i<arrImg.length;i++)
+					{
+						aLi[i].className="";
+					}
+					aLi[num].className="active";
+				}
+				else
+				{
+					num=0;
+					aImg.src=arrImg[num];
+					for(var i=0;i<arrImg.length;i++)
+					{
+						aLi[i].className="";
+					}
+					aLi[num].className="active";
+				}
+			}
+		}
+	</script>
+	</head>
+	<body>
+	<div id="pic"><img src="" />
+	<a id="left" href="javascript:;"><</a>
+	<a id="right"href="javascript:;">></a>
+		<ul>	
+		</ul>
+	</div>
+	</body>
+</html>
