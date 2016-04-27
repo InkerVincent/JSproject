@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>选项框</title>
+	<style type="text/css">
+		ul{margin: 0;padding: 0;}
+		li{list-style: none;display: block;width: 100px;height: 30px;line-height: 30px;}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oUl=document.getElementById('list');
+			var aLi=oUl.getElementsByTagName('li');
+			var choice=oUl.getElementsByTagName('input');
+			var submit=document.getElementById('btn');
+			var aBtn=submit.getElementsByTagName('input');
+			for(var i=0;i<aLi.length;i++){
+				if(choice[i].checked){
+					aLi[i].style.background='grey';
+				}
+				aLi[i].index=i;
+				aLi[i].onmouseover=function(){
+					this.style.background='grey';
+				}
+				aLi[i].onmouseout=function(){
+					if(!choice[this.index].checked){
+						this.style.background='';
+					}
+				}			
+			}
+			aBtn[0].onclick=function(){
+				for(var i=0;i<choice.length;i++){
+					choice[i].checked=true;
+					aLi[i].style.background='grey';
+				}
+			}
+			aBtn[1].onclick=function(){
+				for(var i=0;i<choice.length;i++){
+					choice[i].checked=!choice[i].checked;
+					if(choice[i].checked){
+						aLi[i].style.background='grey';
+					}
+					else{
+						aLi[i].style.background='';
+					}
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<ul id='list'>
+		<li><input type='checkbox' />哈哈</li>
+		<li><input type='checkbox' />呵呵</li>
+		<li><input type='checkbox' />嘻嘻</li>
+		<li><input type='checkbox' />啦啦</li>
+		<li><input type='checkbox' />哼哼</li>
+	</ul>
+	<div id='btn'>
+		<input type='button' value="全选" />
+		<input type='button' value="反选" />
+	</div>
+</body>
+</html>

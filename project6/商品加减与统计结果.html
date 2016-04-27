@@ -18,8 +18,7 @@ window.onload = function () {
 	var max=0;
 	function fnMax(){
 		max=0;
-		for(var i=0;i<aLi.length;i++)
-		{
+		for(var i=0;i<aLi.length;i++){
 			if(cost[i]>max){
 				max=cost[i];
 			}
@@ -45,9 +44,8 @@ window.onload = function () {
 		var oStrong = li.getElementsByTagName ('strong')[0];
 		var oEm = li.getElementsByTagName ('em')[0];
 		var oSpan = li.getElementsByTagName ('span')[0];
-		var n = oStrong.innerHTML;			// '0'
-		var price = parseFloat(oEm.innerHTML);			// 12.5
-		
+		var n = oStrong.innerHTML;
+		var price = parseFloat(oEm.innerHTML);
 		aBtn[0].onclick = function () {
 			if(n==1){
 				for(var i=0;i<aLi.length;i++){
@@ -57,7 +55,7 @@ window.onload = function () {
 						break;
 					}
 				}
-							}
+			}
 			if ( n > 0 ) {
 				n--;
 				if(count >0){
@@ -96,12 +94,9 @@ window.onload = function () {
 	}
 	goods();
 };
-
 </script>
 </head>
-
 <body>
-
 <ul id="list">
 	<li>
   	<input type="button" value="-" />
@@ -139,7 +134,6 @@ window.onload = function () {
     小计：<span>0元</span>
   </li>
 </ul>
-
 <p>
 商品合计共：<span>0件</span>，共花费了：<span>0元</span><br />
 其中最贵的商品单价是：<span>0元</span>
